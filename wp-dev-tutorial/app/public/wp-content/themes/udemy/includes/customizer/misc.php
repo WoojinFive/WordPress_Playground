@@ -25,6 +25,14 @@ function ju_misc_customizer_section( $wp_customize ) {
     'default'     =>  0
   ));
 
+  $wp_customize->add_setting( 'ju_show_header_popular_posts', array(
+    'default'     =>  false
+  ));
+
+  $wp_customize->add_setting( 'ju_popular_posts_widget_title', array(
+    'default'     =>  'Breaking News'
+  ));
+
   $wp_customize->add_setting( 'ju_read_more_color', array(
     'default'     => '#1ABC9C'
   ));
@@ -107,7 +115,7 @@ function ju_misc_customizer_section( $wp_customize ) {
     array(
       'label'     =>  __( 'Read more link color', 'udemy' ),
       'section'   =>  'ju_misc_section',
-      'settings'   =>  'ju_read_more_color'
+      'settings'  =>  'ju_read_more_color'
     )
   ));
 
@@ -117,7 +125,31 @@ function ju_misc_customizer_section( $wp_customize ) {
     array(
       'label'     =>  __( 'File Report', 'udemy' ),
       'section'   =>  'ju_misc_section',
-      'settings'   =>  'ju_report_file'
+      'settings'  =>  'ju_report_file'
+    )
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'ju_show_header_popular_posts_widget_input',
+    array(
+      'label'     =>  __( 'Show Header Popular Posts Widget', 'udemy' ),
+      'section'   =>  'ju_misc_section',
+      'settings'  =>  'ju_show_header_popular_posts',
+      'type'      =>  'checkbox',
+      'choices'   =>  array(
+        'yes'     =>  __( 'Yes', 'udemy' )
+      )
+    )
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control(
+    $wp_customize,
+    'ju_popular_posts_widget_title_input',
+    array(
+      'label'     =>  __( 'Popular Posts Widget Title', 'udemy' ),
+      'section'   =>  'ju_misc_section',
+      'settings'  =>  'ju_popular_posts_widget_title'
     )
   ));
 }
