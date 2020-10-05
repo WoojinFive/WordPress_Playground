@@ -8,4 +8,5 @@ function ju_customize_preview_init() {
     false,
     true
   );
+  // refresh없이 page 바꾸기 위해 
 }
