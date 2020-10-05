@@ -28,6 +28,8 @@ get_header();
 
       <?php
 
+      single_post_title();
+      
 
       ?>
     </div>
