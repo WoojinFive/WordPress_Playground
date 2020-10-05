@@ -1,4 +1,4 @@
-<?
+<?php
 
 function ju_social_customizer_section( $wp_customize ){
   // https://codex.wordpress.org/Class_Reference/WP_Customize_Manager/add_setting
