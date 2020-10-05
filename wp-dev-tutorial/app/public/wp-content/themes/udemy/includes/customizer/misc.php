@@ -3,11 +3,14 @@
 function ju_misc_customizer_section( $wp_customize ) {
   // setting
   $wp_customize->add_setting( 'ju_header_show_search', array(
-    'default'     =>  'yes'
+    'default'     =>  'yes',
+    'transport'   =>  'postMessage' // default value is Refresh. Refresh will tell WordPress to refresh the page if a value is changed. postMessage will tell WorlPress that the developer will handle the changes using JavaScript.
+    // refresh없이 javascript로 아이콘 hide, show조절하기 위함. (enqueue.php)
   ));
 
   $wp_customize->add_setting( 'ju_header_show_cart', array(
-    'default'     =>  'yes'
+    'default'     =>  'yes',
+    'transport'   =>  'postMessage'
   ));
 
   $wp_customize->add_setting( 'ju_footer_copyright_text', array(
@@ -25,7 +28,8 @@ function ju_misc_customizer_section( $wp_customize ) {
   // section
   $wp_customize->add_section( 'ju_misc_section', array(
     'title'       =>  __( 'Udemy Misc Settings', 'Udemy' ),
-    'priority'    =>  30
+    'priority'    =>  30,
+    'panel'       =>  'udemy'
   ));
 
   // controller
