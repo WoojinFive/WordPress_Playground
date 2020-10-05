@@ -6,6 +6,7 @@ function ju_setup_theme() {
   add_theme_support( 'custom-logo' );
   add_theme_support( 'automatic-feed-links' ); // for RSS readers to scan this document.
   add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+  /*
   add_theme_support( 'starter-content', [
     'widgets'                   =>  [
         // Place three core-defined widgets in the sidebar area.
@@ -83,7 +84,9 @@ function ju_setup_theme() {
             ),
         ),
     ],
-]);
+  ]);
+  */
+  
 
   register_nav_menu( 'primary', __( 'Primary Menu', 'udemy' ) ); // __() 2nd parameter -> theme name
   register_nav_menu( 'secondary', __( 'Secondary Menu', 'udemy' ) );
