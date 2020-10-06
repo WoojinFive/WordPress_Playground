@@ -29,7 +29,8 @@ get_header();
       <?php
 
       single_post_title();
-      
+      get_calendar();
+     
 
       ?>
     </div>
