@@ -20,10 +20,12 @@
 include( 'includes/activate.php' );
 include( 'includes/init.php' );
 include( 'process/save-post.php' );
+include( 'process/filter-content.php' );
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
 add_action( 'init', 'recipe_init' );
 add_action ('save_post_recipe', 'r_save_post_admin', 10, 3 ); // 3rd argument -> priority, 4th argument -> number of parameters
+add_filter( 'the_content', 'r_filter_recipe_content' );
 
 // Shortcodes
