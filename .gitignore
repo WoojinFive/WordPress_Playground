@@ -43,11 +43,11 @@ wp-dev-tutorial/app/public/*
 
 wp-dev-tutorial/app/public/wp-content/*
 !wp-dev-tutorial/app/public/wp-content/themes
-!wp-dev-tutorial/app/public/wp-content/mu-plugins
+!wp-dev-tutorial/app/public/wp-content/plugins
 
 wp-dev-tutorial/app/public/wp-content/themes/*
 !wp-dev-tutorial/app/public/wp-content/themes/udemy
 wp-dev-tutorial/app/public/wp-content/themes/udemy/assets
 
 wp-dev-tutorial/app/public/wp-content/plugins/*
-!wp-dev-tutorial/app/public/wp-content/plugins/my-plugins
+!wp-dev-tutorial/app/public/wp-content/plugins/recipe
