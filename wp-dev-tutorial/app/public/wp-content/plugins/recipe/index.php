@@ -18,8 +18,10 @@
 
 // Includes
 include( 'includes/activate.php' );
+include( 'includes/init.php' );
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
+add_action( 'init', 'recipe_init' );
 
 // Shortcodes
