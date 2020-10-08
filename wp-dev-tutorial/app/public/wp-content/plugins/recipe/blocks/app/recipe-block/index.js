@@ -25,28 +25,38 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
   },
   attributes: {
     ingredients: {
-      source: 'text'
+      type: 'string',
+      source: 'text',
+      selector: '.ingredients-ph'
     },
     cooking_time: {
-      source: 'text'
+      type: 'string',
+      source: 'text',
+      selector: '.cooking-time-ph'
     },
     utensils: {
-      source: 'text'
+      type: 'string',
+      source: 'text',
+      selector: '.utensils-ph'
     },
     cooking_experience: {
+      type: 'string',
       source: 'text',
+      selector: '.cooking-experience-ph',
       default: 'Beginner'
     },
     meal_type: {
+      type: 'string',
       source: 'text',
+      selector: '.meal-type-ph',
       default: 'Breakfast'
     }
   },
   edit: ( props ) => {
     //console.log( props );
-    const updateIngredients = (new_val) => {
-      props.setAttributes({ ingredients: new_val });
-    };
+    // const updateIngredients = (new_val) => {
+    //   props.setAttributes({ ingredients: new_val });
+    // };
 
     return [
       <InspectorControls>
@@ -59,7 +69,9 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
             label={ __( 'Ingredients', 'recipe' ) } 
             help={ __( 'Ex: tomatoes, lettuce, olive oil, etc.', 'recipe') }
             value={ props.attributes.ingredients}
-            onChange={ updateIngredients }
+            onChange={ (new_val) => {
+              props.setAttributes({ ingredients: new_val });
+            }}
           />
 
           <TextControl 
@@ -114,29 +126,53 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
         <ul className="list-unstyled">
           <li>
             <strong>{ __( 'Ingredients', 'recipe' ) }: </strong> 
-            { props.attributes.ingredients }
+            <span className="ingredients-ph">{ props.attributes.ingredients }</span>
           </li>
           <li>
             <strong>{ __( 'Cooking Time', 'recipe' ) }: </strong> 
-            { props.attributes.cooking_time }
+            <span className="cooking-time-ph">{ props.attributes.cooking_time }</span>
           </li>
           <li>
             <strong>{ __( 'Utensils', 'recipe' ) }: </strong> 
-            { props.attributes.utensils }
+            <span className="utensils-ph">{ props.attributes.utensils }</span>
           </li>
           <li>
             <strong>{ __( 'Cooking Experience', 'recipe' ) }: </strong> 
-            { props.attributes.cooking_experience }
+            <span className="cooking-experience-ph">{ props.attributes.cooking_experience }</span>
           </li>
           <li>
             <strong>{ __( 'Meal Type', 'recipe' ) }: </strong> 
-            { props.attributes.meal_type }
+            <span className="meal-type-ph">{ props.attributes.meal_type }</span>
           </li>
         </ul>
       </div>
     ];
   },
   save: ( props ) => {
-    return <p>Hello World!</p>
+    return (
+      <div>
+        <ul className="list-unstyled">
+          <li>
+            <strong>{ __( 'Ingredients', 'recipe' ) }: </strong> 
+            <span className="ingredients-ph">{ props.attributes.ingredients }</span>
+          </li>
+          <li>
+            <strong>{ __( 'Cooking Time', 'recipe' ) }: </strong> 
+            <span className="cooking-time-ph">{ props.attributes.cooking_time }</span>
+          </li>
+          <li>
+            <strong>{ __( 'Utensils', 'recipe' ) }: </strong> 
+            <span className="utensils-ph">{ props.attributes.utensils }</span>
+          </li>
+          <li>
+            <strong>{ __( 'Cooking Experience', 'recipe' ) }: </strong> 
+            <span className="cooking-experience-ph">{ props.attributes.cooking_experience }</span>
+          </li>
+          <li>
+            <strong>{ __( 'Meal Type', 'recipe' ) }: </strong> 
+            <span className="meal-type-ph">{ props.attributes.meal_type }</span>
+          </li>
+        </ul>
+      </div>)
   }
 } );
