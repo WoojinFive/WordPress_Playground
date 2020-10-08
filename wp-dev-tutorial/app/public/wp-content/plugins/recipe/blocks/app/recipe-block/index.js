@@ -23,8 +23,31 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
   supports: {
     html:           false
   },
+  attributes: {
+    ingredients: {
+      source: 'text'
+    },
+    cooking_time: {
+      source: 'text'
+    },
+    utensils: {
+      source: 'text'
+    },
+    cooking_experience: {
+      source: 'text',
+      default: 'Beginner'
+    },
+    meal_type: {
+      source: 'text',
+      default: 'Breakfast'
+    }
+  },
   edit: ( props ) => {
     //console.log( props );
+    const updateIngredients = (new_val) => {
+      props.setAttributes({ ingredients: new_val });
+    };
+
     return [
       <InspectorControls>
         <PanelBody title={ __( 'Basics', 'recipe' ) }>
@@ -35,55 +58,53 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
           <TextControl 
             label={ __( 'Ingredients', 'recipe' ) } 
             help={ __( 'Ex: tomatoes, lettuce, olive oil, etc.', 'recipe') }
-            value="test"
-            onChange={ (new_val) => {
-              console.log(new_val);
-            }}
+            value={ props.attributes.ingredients}
+            onChange={ updateIngredients }
           />
 
           <TextControl 
             label={ __( 'Cooking Time', 'recipe' ) } 
             help={ __( 'How long will this take to cook?', 'recipe') }
-            value="test"
+            value={ props.attributes.cooking_time}
             onChange={ (new_val) => {
-              console.log(new_val);
+              props.setAttributes({ cooking_time: new_val });
             }}
           />
 
           <TextControl 
             label={ __( 'Utensils', 'recipe' ) } 
             help={ __( 'Ex: spoon, knife, pots, pans', 'recipe') }
-            value="test"
+            value={ props.attributes.utensils}
             onChange={ (new_val) => {
-              console.log(new_val);
+              props.setAttributes({ utensils: new_val });
             }}
           />
 
           <SelectControl
             label={ __( 'Cooking Experience', 'recipe' ) }
             help={ __( 'How skilled should the reader be?', 'recipe' ) }
-            value="Beginner"
+            value={ props.attributes.cooking_experience }
             options={[
               {value: 'Beginner', label: 'Beginner'},
               {value: 'Intermediate', label: 'Intermediate'},
               {value: 'Expert', label: 'Expert'}
             ]}
             onChange={ (new_val) => {
-              console.log(new_val);
+              props.setAttributes({ cooking_experience : new_val });
             }}
           />
 
           <SelectControl
             label={ __( 'Meal Type', 'recipe' ) }
             help={ __( 'When is this best eaten', 'recipe' ) }
-            value="Breakfast"
+            value={ props.attributes.meal_type}
             options={[
               {value: 'Breakfast', label: 'Breakfast'},
               {value: 'Lunch', label: 'Lunch'},
               {value: 'Dinner', label: 'Dinner'}
             ]}
             onChange={ (new_val) => {
-              console.log(new_val);
+              props.setAttributes({ meal_type: new_val });
             }}
           />
 
@@ -92,19 +113,24 @@ wp.blocks.registerBlockType( 'udemy/recipe', {
       <div className={props.className}>
         <ul className="list-unstyled">
           <li>
-            <strong>{ __( 'Ingredients', 'recipe' ) }: </strong> INGREDIENTS_PH
+            <strong>{ __( 'Ingredients', 'recipe' ) }: </strong> 
+            { props.attributes.ingredients }
           </li>
           <li>
-            <strong>{ __( 'Cooking Time', 'recipe' ) }: </strong> COOKING_TIME_PH
+            <strong>{ __( 'Cooking Time', 'recipe' ) }: </strong> 
+            { props.attributes.cooking_time }
           </li>
           <li>
-            <strong>{ __( 'Utensils', 'recipe' ) }: </strong> UTENSILS_PH
+            <strong>{ __( 'Utensils', 'recipe' ) }: </strong> 
+            { props.attributes.utensils }
           </li>
           <li>
-            <strong>{ __( 'Cooking Experience', 'recipe' ) }: </strong> LEVEL_PH
+            <strong>{ __( 'Cooking Experience', 'recipe' ) }: </strong> 
+            { props.attributes.cooking_experience }
           </li>
           <li>
-            <strong>{ __( 'Meal Type', 'recipe' ) }: </strong> TYPE_PH
+            <strong>{ __( 'Meal Type', 'recipe' ) }: </strong> 
+            { props.attributes.meal_type }
           </li>
         </ul>
       </div>
