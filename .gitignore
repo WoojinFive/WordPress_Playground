@@ -52,3 +52,4 @@ wp-dev-tutorial/app/public/wp-content/themes/udemy/assets
 wp-dev-tutorial/app/public/wp-content/plugins/*
 !wp-dev-tutorial/app/public/wp-content/plugins/*.php
 !wp-dev-tutorial/app/public/wp-content/plugins/recipe
+wp-dev-tutorial/app/public/wp-content/plugins/recipe/blocks/node_modules
