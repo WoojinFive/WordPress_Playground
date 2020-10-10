@@ -28,9 +28,13 @@ include( 'includes/admin/init.php' );
 include( 'blocks/enqueue.php');
 include( dirname(RECIPE_PLUGIN_URL) . '/includes/widgets.php');
 include( dirname(RECIPE_PLUGIN_URL) . '/includes/widgets/daily-recipe.php');
+include( 'includes/cron.php');
+include( 'includes/deactivate.php');
+include( 'includes/utility.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
+register_deactivation_hook( __FILE__, 'r_deactivate_plugin' );
 add_action( 'init', 'recipe_init' );
 add_action ('save_post_recipe', 'r_save_post_admin', 10, 3 ); // 3rd argument -> priority, 4th argument -> number of parameters
 add_filter( 'the_content', 'r_filter_recipe_content' );
@@ -41,5 +45,7 @@ add_action( 'admin_init', 'recipe_admin_init' );
 add_action( 'enqueue_block_editor_assets', 'r_enqueue_block_editor_assets' );
 add_action( 'enqueue_block_assets', 'r_enqueue_block_assets' );
 add_action( 'widgets_init', 'r_widgets_init' );
+add_action( 'r_daily_recipe_hook', 'r_daily_generate_recipe' );
+
 
 // Shortcodes
