@@ -1,7 +1,7 @@
 <?php
 
 function r_filter_recipe_content( $content ) {
-  if( !is_singular( 'recipe' ) ) {
+  if( !is_singular( 'recipe' ) || !is_single( 'recipe' )) {
     return $content;
   }
 
