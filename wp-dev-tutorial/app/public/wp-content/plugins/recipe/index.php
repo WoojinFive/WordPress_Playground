@@ -31,6 +31,7 @@ include( dirname(RECIPE_PLUGIN_URL) . '/includes/widgets/daily-recipe.php');
 include( 'includes/cron.php');
 include( 'includes/deactivate.php');
 include( 'includes/utility.php');
+include( 'includes/shortcodes/creator.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -49,3 +50,4 @@ add_action( 'r_daily_recipe_hook', 'r_daily_generate_recipe' );
 
 
 // Shortcodes
+add_shortcode( 'recipe_creator', 'r_recipe_creator_shortcode' );
