@@ -1,4 +1,5 @@
-<form>
+<div id="recipe-status"></div>
+<form id="recipe-form">
   <div class="form-group">
     <label>Title</label>
     <input type="text" class="form-control" id="r_inputTitle">
