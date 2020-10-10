@@ -33,6 +33,7 @@ include( 'includes/deactivate.php');
 include( 'includes/utility.php');
 include( 'includes/shortcodes/creator.php');
 include( 'process/submit-user-recipe.php' );
+include( 'includes/shortcodes/auth-form.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -54,3 +55,4 @@ add_action( 'wp_ajax_nopriv_r_submit_user_recipe', 'r_submit_user_recipe');
 
 // Shortcodes
 add_shortcode( 'recipe_creator', 'r_recipe_creator_shortcode' );
+add_shortcode( 'recipe_auth_form', 'r_recipe_auth_form_shortcode' );
