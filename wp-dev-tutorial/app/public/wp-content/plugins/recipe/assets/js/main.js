@@ -67,6 +67,7 @@
         $("#register-status").html(
           '<div class="alert alert-success">Account created!</div>'
         );
+        location.href = recipe_obj.home_url;
       } else {
         $("#register-status").html(
           '<div class="alert alert-danger">Unable to create an account.</div>'
