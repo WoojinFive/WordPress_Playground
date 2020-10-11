@@ -5,6 +5,9 @@ function r_activate_plugin() {
     wp_die( __("You must update WordPress to use this plugin.", 'recipe') );
   }
 
+  recipe_init();
+  flush_rewrite_rules(); // custom post type만들때 permalink 설정 가서 저장 수동으로 눌러주는 효과를 자동으로 해줌
+
   global $wpdb;
   $createSQL      = "
   CREATE TABLE `" . $wpdb->prefix . "recipe_ratings` (
