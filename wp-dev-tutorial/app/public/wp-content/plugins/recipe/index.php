@@ -36,6 +36,7 @@ include( 'process/submit-user-recipe.php' );
 include( 'includes/shortcodes/auth-form.php');
 include( 'process/create-account.php' );
 include( 'process/login.php' );
+include( 'includes/shortcodes/auth-alt-form.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -56,8 +57,12 @@ add_action( 'wp_ajax_nopriv_r_submit_user_recipe', 'r_submit_user_recipe');
 // login & signin
 add_action ( 'wp_ajax_nopriv_recipe_create_account', 'recipe_create_account' );
 add_action ( 'wp_ajax_nopriv_recipe_user_login', 'recipe_user_login' );
-
+// add_filter( 'authenticate', 'wp_authenticate_username_password', 20, 3 );
+// add_filter( 'authenticate', 'wp_authenticate_spam_check', 99 ); // 이거 두개는 이미 wp 에 의해 존재 하는것.
+add_filter( 'authenticate', 'r_alt_authenticate', 100, 3 );
+ 
 
 // Shortcodes
 add_shortcode( 'recipe_creator', 'r_recipe_creator_shortcode' );
 add_shortcode( 'recipe_auth_form', 'r_recipe_auth_form_shortcode' );
+add_shortcode( 'recipe_auth_alt_form', 'r_recipe_auth_alt_form_shortcode' );
