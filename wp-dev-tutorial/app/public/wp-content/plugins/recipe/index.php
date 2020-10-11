@@ -40,6 +40,8 @@ include( 'includes/shortcodes/auth-alt-form.php');
 include( 'includes/front/logout-link.php');
 include( 'includes/admin/dashboard-widgets.php');
 include( 'includes/shortcodes/twitter-follow.php');
+include( 'includes/admin/menus.php');
+include( 'includes/admin/options-page.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -70,6 +72,7 @@ add_filter( 'wp_nav_menu_secondary_items', 'ju_new_nav_menu_items', 999 );
 
 add_action( 'wp_dashboard_setup', 'r_dashboard_widgets' );
  
+add_action ( 'admin_menu', 'r_admin_menus' );
 
 // Shortcodes
 add_shortcode( 'recipe_creator', 'r_recipe_creator_shortcode' );
