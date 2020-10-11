@@ -37,6 +37,7 @@ include( 'includes/shortcodes/auth-form.php');
 include( 'process/create-account.php' );
 include( 'process/login.php' );
 include( 'includes/shortcodes/auth-alt-form.php');
+include( 'includes/front/logout-link.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -59,7 +60,11 @@ add_action ( 'wp_ajax_nopriv_recipe_create_account', 'recipe_create_account' );
 add_action ( 'wp_ajax_nopriv_recipe_user_login', 'recipe_user_login' );
 // add_filter( 'authenticate', 'wp_authenticate_username_password', 20, 3 );
 // add_filter( 'authenticate', 'wp_authenticate_spam_check', 99 ); // 이거 두개는 이미 wp 에 의해 존재 하는것.
-add_filter( 'authenticate', 'r_alt_authenticate', 100, 3 );
+// wp 기본 제공 login 페이지 사용관련
+// add_filter( 'authenticate', 'r_alt_authenticate', 100, 3 );
+
+// nav에 logout link 추가하기
+add_filter( 'wp_nav_menu_secondary_items', 'ju_new_nav_menu_items', 999 );
  
 
 // Shortcodes
