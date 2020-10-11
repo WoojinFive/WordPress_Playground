@@ -39,6 +39,7 @@ include( 'process/login.php' );
 include( 'includes/shortcodes/auth-alt-form.php');
 include( 'includes/front/logout-link.php');
 include( 'includes/admin/dashboard-widgets.php');
+include( 'includes/shortcodes/twitter-follow.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
@@ -74,3 +75,4 @@ add_action( 'wp_dashboard_setup', 'r_dashboard_widgets' );
 add_shortcode( 'recipe_creator', 'r_recipe_creator_shortcode' );
 add_shortcode( 'recipe_auth_form', 'r_recipe_auth_form_shortcode' );
 add_shortcode( 'recipe_auth_alt_form', 'r_recipe_auth_alt_form_shortcode' );
+add_shortcode( 'twitter_follow', 'r_twitter_follow_shortcode' );
