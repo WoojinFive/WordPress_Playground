@@ -5,9 +5,17 @@ function r_filter_recipe_content( $content ) {
     return $content;
   }
 
+  // $getget = wp_remote_get( 'https://jsonplaceholder.typicode.com/todos/1' );
+  // $getobj = json_decode(wp_remote_retrieve_body($getget));
+  // echo $getobj->userId;
+
   global $post, $wpdb;
   $recipe_data      = get_post_meta( $post->ID, 'recipe_data', true );
-  $recipe_html      = file_get_contents( 'recipe-template.php', true );
+  $recipe_tpl_res   = wp_remote_get(
+    plugins_url( 'process/recipe-template.php', RECIPE_PLUGIN_URL )
+  );
+  $recipe_html = wp_remote_retrieve_body( $recipe_tpl_res );
+  // $recipe_html      = file_get_contents( 'recipe-template.php', true );
   $recipe_html      = str_replace( 'RATE_I18N', __( "Rating", "recipe" ), $recipe_html );
   $recipe_html      = str_replace( 'RECIPE_ID', $post->ID, $recipe_html );
   $recipe_html      = str_replace( 'RECIPE_RATING', $recipe_data['rating'], $recipe_html );
