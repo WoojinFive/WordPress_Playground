@@ -42,6 +42,7 @@ include( 'includes/admin/dashboard-widgets.php');
 include( 'includes/shortcodes/twitter-follow.php');
 include( 'includes/admin/menus.php');
 include( 'includes/admin/options-page.php');
+include( 'process/save-options.php');
 
 // Hooks
 register_activation_hook( __FILE__, 'r_activate_plugin' ); // This function will be called when our plugin is activated.
