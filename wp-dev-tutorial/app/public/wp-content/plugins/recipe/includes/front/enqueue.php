@@ -6,6 +6,7 @@ function r_enqueue_scripts() {
   
   wp_enqueue_style( 'r_rateit' );
   wp_enqueue_style( 'r_auth' );
+  wp_enqueue_media();
 
   wp_register_script(
     'r_rateit',
