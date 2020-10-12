@@ -1,7 +1,7 @@
 <?php
 
 function r_settings_api() {
-  register_setting( 'r_opts_group', 'r_opts' );
+  register_setting( 'r_opts_group', 'r_opts', 'r_opts_sanitize' );
 
   add_settings_section(
     'recipe_settings',
@@ -52,4 +52,11 @@ function recipe_submission_login_required_input_cb() {
       <?php echo $recipe_opts['recipe_submission_login_required'] == 2 ? 'SELECTED' : '' ?>>Yes</option>
   </select>
   <?php
+}
+
+function r_opts_sanitize( $input ) {
+  $input['rating_login_required'] = absint( $input['rating_login_required'] );
+  $input['recipe_submission_login_required'] = absint( $input['recipe_submission_login_required'] );
+
+  return $input;
 }
