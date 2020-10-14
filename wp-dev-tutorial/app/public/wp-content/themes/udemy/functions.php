@@ -16,7 +16,6 @@ include( get_theme_file_path( '/includes/buddypress/profile-tabs.php' ) );
 include( get_theme_file_path( '/includes/utility.php' ) );
 include( get_theme_file_path( '/includes/buddypress/profile-posts.php' ) );
 
-
 // Hooks
 add_action( 'wp_enqueue_scripts', 'ju_enqueue' );
 add_action( 'after_setup_theme', 'ju_setup_theme' );
@@ -29,5 +28,6 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 // add_action( 'woocommerce_sidebar', function() {
 //   echo 'test';
 // });
+add_filter( 'excerpt_more', '__return_false' );
 
 // Shortcodes
