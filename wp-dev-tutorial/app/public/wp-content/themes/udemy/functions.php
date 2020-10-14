@@ -24,5 +24,9 @@ add_action( 'widgets_init', 'ju_widgets' );
 add_action( 'customize_register' , 'ju_customize_register' ); // customize widget
 add_action( 'customize_preview_init', 'ju_customize_preview_init' );
 add_action( 'bp_setup_nav', 'ju_buddypress_profile_tabs' );
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+// add_action( 'woocommerce_sidebar', function() {
+//   echo 'test';
+// });
 
 // Shortcodes
