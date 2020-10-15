@@ -29,6 +29,15 @@ function r_submit_user_recipe() {
     set_post_thumbnail( $post_id, absint($_POST['attachment_id']) );
   }
 
+  // Update recipe pending notice
+  $pending_recipe_count = $wpdb->get_var(
+    "SELECT COUNT(*) FROM `" . $wpdb->posts . "` WHERE post_status='pending' AND post_type='recipe'"
+  );
+
+  if( $pending_recipe_count >= 5) {
+    update_option( 'r_pending_recipe_notice', 1 );
+  }
+
   $output['status'] = 2;
   wp_send_json( $output );
 }
