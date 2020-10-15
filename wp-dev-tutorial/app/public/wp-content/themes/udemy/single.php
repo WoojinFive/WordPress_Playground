@@ -48,6 +48,8 @@ get_header();
             
             global $post;
             $author_ID = $post->post_author;
+            $twitter = get_the_author_meta( 'ju_twitter', $author_ID );
+
             $author_URL = get_author_posts_url( $author_ID );
 
             ?>
@@ -154,6 +156,17 @@ get_header();
                     <?php echo get_avatar( $author_ID, 90, '', false, [ 'class' => 'img-circle' ] ); ?>
                   </div>
                   <?php echo nl2br( get_the_author_meta( 'description' ) ); // nl2br -> new line에 br 자동으로 추가해줌?> 
+                  <?php
+                  if( $twitter ) {
+                    ?>
+                    <p>
+                    Twitter: @<a href="https://twitter.com/<?php echo $twitter; ?>">
+                      <?php echo $twitter; ?>
+                      </a>
+                    </p>
+                    <?php
+                  }
+                  ?>
                 </div>
               </div><!-- Post Single - Author End -->
 
