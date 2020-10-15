@@ -6,6 +6,7 @@ get_header();
 
 ?>
 
+
 <!-- Content
 ============================================= -->
 <section id="content">
@@ -108,3 +109,14 @@ get_header();
 </section><!-- #content end -->
 
 <?php get_footer(); ?>
+
+
+<?php
+
+  // global $wp_filter, $wpdb;
+
+  // echo '<pre>';
+  // print_r( $wpdb->queries );
+  // echo '</pre>';
+
+?> 
