@@ -145,10 +145,11 @@ get_header();
               <!-- Post Author Info
                             ============================================= -->
               <div class="card">
-                <div class="card-header">
+                <div class="card-header" itemscope itemtype="https://schema.org/Person">
                   <strong>
                     Posted by
-                    <a href="<?php echo $author_URL; ?>"><?php the_author(); ?></a>
+                    <a href="<?php echo $author_URL; ?>"
+                      itemprop="name"><?php the_author(); ?></a>
                   </strong>
                 </div>
                 <div class="card-body">
