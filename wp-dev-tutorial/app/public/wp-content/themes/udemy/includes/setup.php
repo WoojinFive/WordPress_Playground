@@ -88,6 +88,7 @@ function ju_setup_theme() {
   ]);
   */
   
+  add_image_size( 'ju-post-image', 860, 575, false );
 
   register_nav_menu( 'primary', __( 'Primary Menu', 'udemy' ) ); // __() 2nd parameter -> theme name
   register_nav_menu( 'secondary', __( 'Secondary Menu', 'udemy' ) );

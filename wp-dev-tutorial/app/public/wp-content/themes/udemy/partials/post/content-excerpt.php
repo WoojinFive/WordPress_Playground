@@ -5,7 +5,7 @@
     ?>
     <div class="entry-image">
       <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail( 'full', [ 'class' => 'image_fade' ] ); ?> 
+        <?php the_post_thumbnail( 'ju-post-image', [ 'class' => 'image_fade' ] ); ?> 
         <!-- template tag -->
       </a>
     </div>
